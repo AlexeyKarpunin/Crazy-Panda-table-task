@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.table__section {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.table {
+  max-width: 1170px;
+  margin:  0 auto;
+  border: 1px solid #000000;
+  min-height: 600px;
+}
+
+.active {
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.table__item {
+  position: relative;
+  padding: 5px 10px;
+}
+.table__item--hover:hover,
+.table__item:hover ~ .table__item--hover {
+  display: flex;
+  flex-direction: column;
+  background: rgb(163, 163, 163);
+  color: aliceblue;
+  height: 70px;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 99;
+}
+
+.table__item--hover {
+  position: absolute;
+  top: 0;
+  padding: 5px 10px;
+  display: none;
+}
+
+.table__item--hover div {
+  border: none !important;
+}
+
+.off {
+  display: none;
+}
+
+.location_btn {
+  font-size: 20px;
+}
+
+.location_btn--add {
+  margin: 0 0 0 20px;
+  border: 1px solid rgb(65, 61, 61);
+  padding: 0 5px;
+  height: 25px;
+  line-height: 22px;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+.location_btn--add:hover {
+  color: white;
+  background-color: rgb(10, 10, 10);
+  border: 1px solid rgb(62, 128, 1);
+
+}
