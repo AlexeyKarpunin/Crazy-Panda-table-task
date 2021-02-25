@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Crazy-Panda-table-task/static/css/main.d26cfd62.chunk.css",
+    "main.js": "/Crazy-Panda-table-task/static/js/main.8b1ed618.chunk.js",
+    "main.js.map": "/Crazy-Panda-table-task/static/js/main.8b1ed618.chunk.js.map",
+    "runtime-main.js": "/Crazy-Panda-table-task/static/js/runtime-main.b145bd73.js",
+    "runtime-main.js.map": "/Crazy-Panda-table-task/static/js/runtime-main.b145bd73.js.map",
+    "static/js/2.60a2ecd9.chunk.js": "/Crazy-Panda-table-task/static/js/2.60a2ecd9.chunk.js",
+    "static/js/2.60a2ecd9.chunk.js.map": "/Crazy-Panda-table-task/static/js/2.60a2ecd9.chunk.js.map",
+    "static/js/3.13b4f513.chunk.js": "/Crazy-Panda-table-task/static/js/3.13b4f513.chunk.js",
+    "static/js/3.13b4f513.chunk.js.map": "/Crazy-Panda-table-task/static/js/3.13b4f513.chunk.js.map",
+    "index.html": "/Crazy-Panda-table-task/index.html",
+    "static/css/main.d26cfd62.chunk.css.map": "/Crazy-Panda-table-task/static/css/main.d26cfd62.chunk.css.map",
+    "static/js/2.60a2ecd9.chunk.js.LICENSE.txt": "/Crazy-Panda-table-task/static/js/2.60a2ecd9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b145bd73.js",
+    "static/js/2.60a2ecd9.chunk.js",
+    "static/css/main.d26cfd62.chunk.css",
+    "static/js/main.8b1ed618.chunk.js"
+  ]
+}
