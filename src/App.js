@@ -2,12 +2,38 @@ import {useState } from 'react';
 import styled from 'styled-components';
 import TablePage from './components/TablePage';
 import Location from "./components/Location";
-import Mover from './components/Mover';
+
+const defaultList = [
+  ['', '', '', '', '', '', '', '', '', ''],
+  ['', '', '', '', '', '', '', '', '', ''],
+  ['', '', '', '', '', '', '', '', '', ''],
+  ['', '', '', '', '', '', '', '', '', ''],
+  ['', '', '', '', '', '', '', '', '', ''],
+]
+
+const model = [
+  [
+    ['hover Me!', '9','8','6', '7', '2', '1', '5', '3', '4'],
+    ['', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '']
+  ],
+
+  [ 
+    ['', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '']
+  ],  
+]
 
 function App() {
-  const [list, setList] = useState(new Array(2).fill(0));
+  const [list, setList] = useState(model);
   const [listCounter, setListCounter] = useState(0);
 
+  // console.log('App render')
   function nextList () {
     if (listCounter === list.length - 1) return;
     setListCounter( (prev) => {
@@ -21,36 +47,38 @@ function App() {
       return prev - 1;
     })
   }
-
-  function addList () {setList([...list, 0])}
+  function addList () {
+    const copy = defaultList.map( (item) => Object.assign([], item));
+    setList([...list, copy])
+  }
 
   function teleport(e, position) {setListCounter(position)}
   
   return (
-    <Mover>
     <section className="table__section">
-      <HeadH1>Hello Crazy Panda !!!</HeadH1>
+      <HeadH1>Hello World !!!</HeadH1>
 
       <section className="table">
         <HeadH2>Таблица {listCounter + 1} / {list.length}</HeadH2>
 
         {list.map( (item, index) => {
-          let example = true;
-          if (index > 0) example = false;
-
-          return <TablePage status={listCounter === index ? 'active' : 'none-active'} expample={example}/>
+          return <TablePage status={listCounter === index ? 'active' : 'none-active'} data={item} />
         })}
 
-        <Location teleport={teleport} next={nextList} prev={prevList} list={list} activeitem={listCounter} add={addList} /> 
+        <Location 
+          teleport={teleport} 
+          next={nextList} 
+          prev={prevList} 
+          list={list} 
+          activeitem={listCounter} 
+          add={addList} 
+        /> 
       </section>
     </section>
-    </Mover>
   );
 }
 
 export default App;
-
-
 
 
 const HeadH1 = styled.h1`

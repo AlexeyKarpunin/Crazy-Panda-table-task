@@ -1,49 +1,41 @@
 import styled from "styled-components"
 
 export default function Location ( {next, prev, list, activeitem, add, teleport}) {
-
-  function listMenu () {
-    if (list.length <= 2) {
+  // возвращает навигацию по кол-ву number
+  function listMenu(number) {    
       return (
-      <div>
-        {list.map( (item, index) => {
-          return <span onClick={(e) => teleport(e, Number(index))} className={index === activeitem ? 'active' : null}>{index + 1} &nbsp;</span> 
-        })}
-      </div>
-      )
-    } else {
-            if (activeitem === 0) {
+        <>
+           {list.map( (_, index) => {
+
+             if (index < activeitem && index >= activeitem - number) {
               return (
                 <>
-                 <span className='active' >{activeitem + 1} &nbsp;</span>
-                 <span onClick={(e) => teleport(e, Number(activeitem) + 1)} >{activeitem + 2} &nbsp;</span>
-                 <span onClick={(e) => teleport(e, Number(activeitem) + 2)} >{activeitem + 3} &nbsp;</span>
+                  <span onClick={(e) => teleport(e, index)}>{index + 1} &nbsp;</span>
                 </>
               )
-            } else if (activeitem === list.length - 1) {
+             }
+           })}
+
+           <span className='active' >{activeitem + 1} &nbsp;</span>
+
+           {list.map( (_, index) => {
+             if (index > activeitem && index <= activeitem + number) {
               return (
                 <>
-                  <span onClick={(e) => teleport(e, Number(activeitem - 2))} >{activeitem - 1} &nbsp;</span>
-                  <span onClick={(e) => teleport(e, Number(activeitem - 1))} >{activeitem} &nbsp;</span>
-                  <span className='active' >{activeitem + 1} &nbsp;</span>
+                  <span onClick={(e) => teleport(e, index)}>{index + 1} &nbsp;</span>
                 </>
               )
-            } else {
-              return (
-                <>
-                  <span onClick={(e) => teleport(e, Number(activeitem - 1))} >{activeitem} &nbsp;</span>
-                  <span className='active' >{activeitem + 1} &nbsp;</span>
-                  <span onClick={(e) => teleport(e, Number(activeitem + 1))} >{activeitem + 2} &nbsp;</span>
-                </>
-              )
-            }
-    }
+             }
+           })}
+        </>  
+      )  
+    
   }
 
   return (
     <LocationBox>
           <span className='location_btn' onClick={prev}> &#10096; &nbsp;</span>
-          {listMenu()}
+          {listMenu(2)}
           <span className='location_btn' onClick={next}> &#10097; </span>
           <span className='location_btn--add' onClick={add}> + </span>
     </LocationBox>

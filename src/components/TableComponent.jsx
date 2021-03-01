@@ -7,7 +7,7 @@ const STATUSES = {
   down: 'down'
 }
 
-export default function TableComponent ({index, func, table, title, indicator}) {
+export default function TableComponent ({index, setter, table, title, indicator, tableIndex}) {
   const {active, disable, up, down } = STATUSES;
 
   const [status, setStatus] = useState(disable);
@@ -15,29 +15,31 @@ export default function TableComponent ({index, func, table, title, indicator}) 
   const [sortStatus, setSortStatus] = useState(up);
   const inputRef = useRef();
 
-
+  // console.log('Table component render')
   useEffect( () => {
     setValue(table[index]);
   }, [table])
 
+  // Клик меняет div на input и кидает фокус на input;
   function handelClick () {
      setStatus(active);
      setValue( (prev) => prev.trim());
      
      setTimeout(() => {
       inputRef.current.focus();
-      
      }, 100);
   }
 
+  // Сохраняет значение iput при потере фокуса в state
   function handleBlur () {
     setStatus(disable);
-    func( (prev) => {
-      prev[index] = inputRef.current.value;
+    setter( (prev) => {
+      prev[tableIndex][index] = inputRef.current.value;
       return [...prev]
     })
   }
 
+  // потеря фокуса пр нажатии Enter
   function handlePresskey (e) {
     if (e.key === 'Enter') {
       e.target.blur()
@@ -100,37 +102,37 @@ export default function TableComponent ({index, func, table, title, indicator}) 
       })
     }
   }
-
+ // сортировка всех ячеек кроме  0 (title):
   function sortTable () {
     if (sortStatus === up) {
-      func( (prev) => {
-        const title = prev.shift();
+      setter( (prev) => {
+        const title = prev[tableIndex].shift();
 
-        prev.sort( (a, b) => {
+        prev[tableIndex].sort( (a, b) => {
           if(a === "" || a === null) return 1;
           if(b === "" || b === null) return -1;
           if(a === b) return 0;
           return a < b ? -1 : 1;
         });
 
-        prev.unshift(title);
+        prev[tableIndex].unshift(title);
 
         return [...prev];
       });
 
       setSortStatus(down);
     } else {
-      func( (prev) => {
-        const title = prev.shift();
+      setter( (prev) => {
+        const title = prev[tableIndex].shift();
 
-        prev.sort( (a,b) => {
+        prev[tableIndex].sort( (a,b) => {
             if(a === "" || a === null) return 1;
             if(b === "" || b === null) return -1;
             if(a === b) return 0;
             return b < a ? -1 : 1; 
           });
 
-        prev.unshift(title);
+        prev[tableIndex].unshift(title);
         return [...prev];
       });
       setSortStatus(up);
