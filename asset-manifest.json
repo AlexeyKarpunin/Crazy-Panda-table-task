@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Crazy-Panda-table-task/static/css/main.d26cfd62.chunk.css",
-    "main.js": "/Crazy-Panda-table-task/static/js/main.8b1ed618.chunk.js",
-    "main.js.map": "/Crazy-Panda-table-task/static/js/main.8b1ed618.chunk.js.map",
+    "main.js": "/Crazy-Panda-table-task/static/js/main.8bf1656a.chunk.js",
+    "main.js.map": "/Crazy-Panda-table-task/static/js/main.8bf1656a.chunk.js.map",
     "runtime-main.js": "/Crazy-Panda-table-task/static/js/runtime-main.b145bd73.js",
     "runtime-main.js.map": "/Crazy-Panda-table-task/static/js/runtime-main.b145bd73.js.map",
     "static/js/2.60a2ecd9.chunk.js": "/Crazy-Panda-table-task/static/js/2.60a2ecd9.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b145bd73.js",
     "static/js/2.60a2ecd9.chunk.js",
     "static/css/main.d26cfd62.chunk.css",
-    "static/js/main.8b1ed618.chunk.js"
+    "static/js/main.8bf1656a.chunk.js"
   ]
 }
